@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Photo</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -20,6 +21,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td scope="row">{{$user->id}}</td>
+                        <td><img height="50" src="{{$user->photo ? $user->photo->file : 'User has no photo!'}}" alt=""/></td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role ? $user->role->name : 'User has no role!'}}</td>
@@ -28,6 +30,8 @@
                         <td>{{$user->updated_at->diffForHumans()}}</td>
                     </tr>
                 @endforeach 
+            @else 
+                <td style="font-size: 25px;">No users to show</td>
             @endif
         </tbody>
     </table>
