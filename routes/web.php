@@ -24,7 +24,13 @@ Route::get('/admin', function(){
 });
 
 Route::group(['middleware' => 'admin'], function () {
+    // Users
     Route::resource('admin/users', 'AdminUsersController');
+
+    // POSTS
+    Route::resource('admin/posts', 'AdminPostsController');
 });
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout'); 
+
+
