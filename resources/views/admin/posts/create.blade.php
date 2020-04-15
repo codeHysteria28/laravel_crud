@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 {!! Form::label('category_id', 'Category:') !!}
-                {!! Form::select('category_id', array(''=> 'Choose From Category',1 => 'PHP\Laravel', 2 => 'Javascript', 3 => 'jQuery'), null, ['class' => 'form-control']) !!}
+                {!! Form::select('category_id', ['' => 'Choose Category'] + $categories, null, ['class' => 'form-control']) !!}
                 {{@csrf_field()}}
             </div>
 
