@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Auth;
 use App\Photo;
+use App\User;
+use App\Role;
 use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 
@@ -78,7 +80,9 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        return view('admin.posts.edit', compact('post'));
+        $category = Category::pluck('name','id')->all();
+
+        return view('admin.posts.edit', compact('post', 'category'));
     }
 
     /**
@@ -88,9 +92,10 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsCreateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $post = Post::findOrFail($id);
+        // $post = Post::findOrFail($id);
+        $input = $request->all();
 
         if($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
@@ -99,7 +104,7 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        $user->update($input);
+        Auth::user()->posts()->whereId($id)->first()->update($input);
 
         return redirect('/admin/posts');
 

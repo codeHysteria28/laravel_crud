@@ -11,8 +11,8 @@
                 <th>Category</th>
                 <th>Photo</th>
                 <th>Body</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th>Created</th>
+                <th>Updated</th>
             </tr>
             </thead>
             <tbody>
