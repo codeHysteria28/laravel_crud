@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>{{ $category->name }}</th>
+                        <th>Category Name</th>
                         <th>Created date</th>
                     </tr>
                 </thead>
