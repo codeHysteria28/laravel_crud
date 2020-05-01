@@ -24,6 +24,7 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
 
     {{-- dropzone css --}}
     @yield('styles')
@@ -124,7 +125,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fad fa-user-friends"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{route('users.index')}}">All Users</a>
@@ -139,7 +140,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fas fa-mail-bulk"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ route('posts.index') }}">All Posts</a>
@@ -149,21 +150,25 @@
                                 <a href="{{route('posts.create')}}">Create Post</a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('comments.index') }}">All Comments</a>
+                            </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ route('categories.index') }}">All Categories</a>
                             </li>
 
-                            <li>
+                            {{-- <li>
                             <a href="{{ route('categories.create') }}">Create Category</a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -171,7 +176,7 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="far fa-images"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ route('media.index') }}">All Media</a>
@@ -185,6 +190,16 @@
                         <!-- /.nav-second-level -->
                     </li>
 
+
+                    <li>
+                        <a href="#"><i class="fa fa-comments"></i> Comments<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('comments.index') }}">All Comments</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
 
 
 
