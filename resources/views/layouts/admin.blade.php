@@ -25,6 +25,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
+    {{-- dropzone css --}}
+    @yield('styles')
+
 
 
 
@@ -159,7 +162,7 @@
                             </li>
 
                             <li>
-                                <a href="#">Create Category</a>
+                            <a href="{{ route('categories.create') }}">Create Category</a>
                             </li>
 
                         </ul>
@@ -171,11 +174,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('media.index') }}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href=" {{ route('media.create') }} ">Upload Media</a>
                             </li>
 
                         </ul>
@@ -349,8 +352,9 @@
 
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
+{{-- dropzone --}}
+@yield('scripts')
 
-@yield('footer')
 
 </body>
 </html>

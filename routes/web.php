@@ -32,6 +32,10 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Categories
     Route::resource('admin/categories', 'AdminCategoriesController');
+
+    //Media
+    Route::resource('admin/media', 'AdminMediaController');
+
 });
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout'); 
