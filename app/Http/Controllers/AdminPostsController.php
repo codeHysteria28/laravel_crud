@@ -8,6 +8,7 @@ use Auth;
 use App\Photo;
 use App\User;
 use App\Role;
+use App\Comment;
 use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 
@@ -128,7 +129,7 @@ class AdminPostsController extends Controller
 
     public function post($id){
         $post = Post::findOrFail($id);
-
-        return view('post', compact('post'));
+        $comments = Comment::wherePostId($id)->whereIsActive(1)->get();
+        return view('post', compact('post','comments'));
     }
 }

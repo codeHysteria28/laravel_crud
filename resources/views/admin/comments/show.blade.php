@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @if(count($comments) > 0)
+@if ($comment)
     <h1>Comments</h1>
     <table class="table table-striped table-inverse table-responsive">
         <thead class="thead-inverse">
@@ -19,7 +19,6 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($comments as $comment)
                     <tr>
                         <td scope="row">{{ $comment->id }}</td>
                         <td>{{ $comment->author }}</td>
@@ -61,10 +60,10 @@
                             {!! Form::close() !!}
                         </td>
                     </tr>
-                @endforeach
             </tbody>
     </table> 
-    @else
-        <p class="text-center text-danger">No comments to show</p>
-    @endif
+@else
+    <p class="text-center text-danger">No comments to show</p>
+@endif
+    
 @endsection

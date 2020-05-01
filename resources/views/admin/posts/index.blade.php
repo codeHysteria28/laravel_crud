@@ -11,6 +11,7 @@
                 <th>Category</th>
                 <th>Photo</th>
                 <th>Body</th>
+                <th>Post</th>
                 <th>Created</th>
                 <th>Updated</th>
             </tr>
@@ -24,7 +25,8 @@
                         <td><a href="{{ route('posts.edit', $post->id) }}">{{$post->title}}</a></td>
                         <td>{{$post->category ? $post->category->name : 'Uncategorized' }}</td>
                         <td><img height="50" src="{{$post->photo ? $post->photo->file : 'no photo'}}" alt=""></td>
-                        <td>{{$post->body}}</td>
+                        <td>{{str_limit($post->body, 30)}}</td>
+                        <td><a href="{{ route('home.post', $post->id) }}" target="_blank">View Post</a></td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{{$post->updated_at->diffForHumans()}}</td>
                     </tr>
