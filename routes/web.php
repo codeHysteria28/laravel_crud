@@ -33,11 +33,15 @@ Route::group(['middleware' => 'admin'], function () {
     // Categories
     Route::resource('admin/categories', 'AdminCategoriesController');
 
-    //Media
+    // Media
     Route::resource('admin/media', 'AdminMediaController');
+
+    // Comments
+    Route::resource('admin/comments', 'PostCommentsController');
+
+    // Replies
+    Route::resource('admin/comment/replies', 'CommentsRepliesController');
 
 });
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout'); 
-
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
