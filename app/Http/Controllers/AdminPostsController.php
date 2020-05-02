@@ -129,7 +129,8 @@ class AdminPostsController extends Controller
 
     public function post($id){
         $post = Post::findOrFail($id);
-        $comments = Comment::wherePostId($id)->whereIsActive(1)->get();
+        $comments = Comment::orderBy('created_at', 'desc')->wherePostId($id)->whereIsActive(1)->get();
+
         return view('post', compact('post','comments'));
     }
 }

@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post/{id}', ['as'=>'home.post','uses'=>'AdminPostsController@post']);
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::group(['middleware' => 'admin'], function () {
 
     // Admin
@@ -48,4 +50,6 @@ Route::group(['middleware' => 'admin'], function () {
 
 });
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('comment/reply', 'CommentsRepliesController@createReply');
+});

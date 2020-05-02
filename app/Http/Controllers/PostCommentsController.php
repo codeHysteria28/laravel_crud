@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Post;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PostCommentsController extends Controller
 {
@@ -15,7 +15,7 @@ class PostCommentsController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
+        $comments = Comment::orderBy('created_at', 'DESC')->get();
         return view('admin.comments.index', compact('comments'));
     }
 
